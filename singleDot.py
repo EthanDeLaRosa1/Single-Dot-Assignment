@@ -4,6 +4,7 @@ import random
 
 p = Problem('singleDotMedium.txt')
 #p = Problem('singleDotMedium.txt')
+#GOAT
 
 def prt(V):
     for k in V:
