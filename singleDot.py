@@ -2,7 +2,7 @@ from SingleDotProblem import State, Problem
 from problemGraphics import pacmanGraphic
 import random
 
-p = Problem('singleDotSmall.txt')
+p = Problem('singleDotMedium.txt')
 #p = Problem('singleDotMedium.txt')
 
 def prt(V):
@@ -72,6 +72,7 @@ for episode in range(100):
         else:  n, a = random.choice(neighbors)
         
         # 4) set currentState to n
+        currentState = n  # Set currentState to the next state selected
         
         
 # Extract Policy
@@ -80,7 +81,7 @@ policy = {}
 # 1) Loop over all all states in V
 for s in V:
     # 2) if currentState is termianl state:
-    if p.isTerminal:
+    if p.isTerminal(s):
         # set the policy for currentState to None
         policy[s] = None
         continue
@@ -105,7 +106,7 @@ for s in V:
         # also store the best action
         
     # save bestAction in policy[currentState] 11
-    policy[currentState] = bestAction
+    policy[s] = bestAction
 
 pac = pacmanGraphic(1300, 700)
 pac.setup(p)
